@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alteração de Dados</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Dropdown.css">
+</head>
+<body class="bg-gray-600">
+    <nav class="bg-blue-500 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="Produtos.html" class="text-white text-2xl font-bold"><img src="./img/logo-Photoroom.png-Photoroom.png" class=""width="60" height="60" ></a>
+            <div class="w-1/3">
+                <input type="text" class="w-full px-4 py-2 border rounded-lg" placeholder="Pesquisar produtos...">
+            </div>
+            <div class="dropdown relative">
+                <button class="text-white ml-4 hover:text-gray-300">Categorias</button>
+                <div class="dropdown-menu absolute hidden">
+                    <ul>
+                        <a href="#" class="block">Cães</a>
+                        <a href="#" class="block">Gatos</a>
+                        <a href="#" class="block">Remédios</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown relative">
+                <button class="text-white ml-4 hover:text-gray-300"><img src="./img\menu-svgrepo-com.svg" alt=""></button>
+                <div class="dropdown-menu absolute hidden">
+                    <ul>
+                        <a href="Alterar-Dados.html" class="block">Alterar Dados</a>
+                        <a href="Cadastro-Produtos.html" class="block">Cadastrar um Produto</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="alteracao-dados" class="container mx-auto mt-10">
+        <h2 class="text-2xl font-bold mb-4">Alteração de Dados</h2>
+        <form class="max-w-md">
+            <div class="mb-4">
+                <label class="block mb-2">Selecione o Tipo de Dado a Ser Alterado:</label>
+                <select id="tipo-alteracao" class="w-full px-3 py-2 border rounded-lg">
+                    <option value="escolha-aqui">Escolha a opção</option>
+                    <option value="usuario">Dados do Usuário</option>
+                    <option value="produto">Dados do Produto</option>
+                </select>
+            </div>
+
+            <div id="formulario-alteracao">
+                
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Alterar Dado</button>
+        </form>
+    </section>
+    <script>
+
+        const tipoAlteracao = document.getElementById('tipo-alteracao');
+
+        const formularioAlteracao = document.getElementById('formulario-alteracao');
+
+
+        tipoAlteracao.addEventListener('change', function() {
+
+            formularioAlteracao.innerHTML = '';
+
+            if (tipoAlteracao.value === 'usuario') {
+                formularioAlteracao.innerHTML = `
+                    <div class="mb-4">
+                        <label for="novo-nome" class="block mb-2">Novo Nome de Usuário:</label>
+                        <input type="text" id="novo-nome" name="novo-nome" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                    <div class="mb-4">
+                        <label for="novo-email" class="block mb-2">Novo E-mail:</label>
+                        <input type="email" id="novo-email" name="novo-email" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                    <div class="mb-4">
+                        <label for="nova-senha" class="block mb-2">Nova Senha:</label>
+                        <input type="password" id="nova-senha" name="nova-senha" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                `;
+            } else if (tipoAlteracao.value === 'produto') {
+                formularioAlteracao.innerHTML = `
+                    <div class="mb-4">
+                        <label for="novo-nome-produto" class="block mb-2">Novo Nome do Produto:</label>
+                        <input type="text" id="novo-nome-produto" name="novo-nome-produto" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                    <div class="mb-4">
+                        <label for="novo-preco-produto" class="block mb-2">Novo Preço do Produto:</label>
+                        <input type="number" id="novo-preco-produto" name="novo-preco-produto" step="0.01" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                    <div class="mb-4">
+                        <label for="nova-imagem-produto" class="block mb-2">Nova Imagem do Produto:</label>
+                        <input type="file" id="nova-imagem-produto" name="nova-imagem-produto" accept="image/*" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                `;
+            }
+        });
+    </script>
+
+</html>

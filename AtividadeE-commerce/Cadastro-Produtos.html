@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastro de Produtos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Dropdown.css">
+</head>
+<body class="bg-gray-600">
+     <nav class="bg-blue-500 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="Produtos.html" class="text-white text-2xl font-bold"><img src="./img/logo-Photoroom.png-Photoroom.png" class=""width="60" height="60" ></a>
+            <div class="w-1/3">
+                <input type="text" class="w-full px-4 py-2 border rounded-lg" placeholder="Pesquisar produtos...">
+            </div>
+            <div class="dropdown relative">
+                <button class="text-white ml-4 hover:text-gray-300">Categorias</button>
+                <div class="dropdown-menu absolute hidden">
+                    <ul>
+                        <a href="#" class="block">Cães</a>
+                        <a href="#" class="block">Gatos</a>
+                        <a href="#" class="block">Remédios</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown relative">
+                <button class="text-white ml-4 hover:text-gray-300"><img src="./img\menu-svgrepo-com.svg" alt=""></button>
+                <div class="dropdown-menu absolute hidden">
+                    <ul>
+                        <a href="Alterar-Dados.html" class="block">Alterar Dados</a>
+                        <a href="Cadastro-Produtos.html" class="block">Cadastrar um Produto</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section id="cadastro-produto" class="container mx-auto mt-10">
+        <h2 class="text-2xl font-bold mb-4">Cadastro de Produto</h2>
+        <form class="max-w-md" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label for="nome-produto" class="block mb-2">Nome do Produto:</label>
+                <input type="text" id="nome-produto" name="nome-produto" class="w-full px-3 py-2 border rounded-lg" required>
+            </div>
+            <div class="mb-4">
+                <label for="preco-produto" class="block mb-2">Preço do Produto:</label>
+                <input type="number" id="preco-produto" name="preco-produto" step="0.01" class="w-full px-3 py-2 border rounded-lg" required>
+            </div>
+            <div class="mb-4">
+                <label for="imagem-produto" class="block mb-2">Imagem do Produto:</label>
+                <input type="file" id="imagem-produto" name="imagem-produto" accept="image/*" class="w-full px-3 py-2 border rounded-lg" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Cadastrar</button>
+        </form>
+    </section>
+</html>
